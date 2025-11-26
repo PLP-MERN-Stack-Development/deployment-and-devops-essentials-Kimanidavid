@@ -1,0 +1,8 @@
+- [ ] Fix user model to include 'username' field instead of 'name'
+- [ ] Create Category model
+- [ ] Create category controller
+- [ ] Create category routes
+- [ ] Update Post model ref from 'User' to 'user'
+- [ ] Uncomment category routes in server.js
+- [ ] Create .env file with MONGODB_URI
+- [ ] Test server connection and post fetching
