@@ -5,6 +5,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const path = require('path');
 
 // Import routes
@@ -20,6 +22,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+app.use(helmet()); // Security headers
+app.use(morgan('combined')); // Logging
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,10 +44,22 @@ app.use('/api/posts', postRoutes);
 // app.use('/api/categories', categoryRoutes);
 // app.use('/api/auth', authRoutes);
 
-// Root route
-app.get('/', (req, res) => {
-  res.send('MERN Blog API is running');
-});
+// Serve static files from React build in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+
+  // Catch all handler: send back React's index.html file for client-side routing
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  });
+}
+
+// Root route (only in development)
+if (process.env.NODE_ENV !== 'production') {
+  app.get('/', (req, res) => {
+    res.send('MERN Blog API is running');
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {

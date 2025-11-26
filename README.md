@@ -18,6 +18,25 @@ You will:
 3. Follow the setup instructions in the `Week7-Assignment.md` file
 4. Use the provided templates and configuration files as a starting point
 
+## Task 1: Preparing the Application for Deployment
+
+### MongoDB Atlas Setup
+1. Create a MongoDB Atlas account at [mongodb.com/atlas](https://www.mongodb.com/atlas)
+2. Create a new cluster (free tier is available)
+3. Set up a database user with read/write permissions
+4. Whitelist your IP address (or 0.0.0.0/0 for all IPs in development)
+5. Get your connection string from the "Connect" button
+6. Copy the connection string and replace `<username>`, `<password>`, and `<database>` with your values
+7. Add the connection string to your `server/.env` file as `MONGODB_URI`
+
+### Environment Variables
+- Copy `server/.env.example` to `server/.env` and fill in your values
+- Copy `client/.env.example` to `client/.env` if needed (for custom API URL)
+
+### Building the Application
+- Run `npm run build` to build the React client for production
+- The server is configured to serve the built client in production mode
+
 ## Files Included
 
 - `Week7-Assignment.md`: Detailed assignment instructions
