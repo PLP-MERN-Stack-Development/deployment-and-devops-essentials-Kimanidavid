@@ -15,8 +15,12 @@ You will:
 
 1. Accept the GitHub Classroom assignment invitation
 2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
+3. Follow the detailed setup and task instructions in the `Week7-Assignment.md` file
 4. Use the provided templates and configuration files as a starting point
+
+## Deployed Application
+
+The MERN blog application is deployed and accessible at: [https://mern-blog-r1ki.vercel.app/](https://mern-blog-r1ki.vercel.app/)
 
 ## Task 1: Preparing the Application for Deployment
 
